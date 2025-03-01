@@ -1,4 +1,4 @@
-const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('./dist/otp-ed-lib.nodejs.cjs.js')
+const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('./dist/otp-encrypt-js.nodejs.cjs.js')
 
 // The message
 const message = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123:æøå! https://somesecreturl.com/'

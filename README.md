@@ -1,9 +1,9 @@
-# OTPEncryptJS
+# otp-encrypt-js
 
-[![NPM version](http://img.shields.io/npm/v/otpencryptjs.svg?style=flat)](https://npmjs.org/package/otpencryptjs)
-[![NPM downloads](http://img.shields.io/npm/dm/otpencryptjs.svg?style=flat)](https://npmjs.org/package/otpencryptjs) 
-[![jSDelivr CDN](https://data.jsdelivr.com/v1/package/npm/otpencryptjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/otpencryptjs)
-[![tests](https://github.com/eklem/otpencryptjs/actions/workflows/tests.yml/badge.svg)](https://github.com/eklem/otpencryptjs/actions/workflows/tests.yml)
+[![NPM version](http://img.shields.io/npm/v/otp-encrypt-js.svg?style=flat)](https://npmjs.org/package/otp-encrypt-js)
+[![NPM downloads](http://img.shields.io/npm/dm/otp-encrypt-js.svg?style=flat)](https://npmjs.org/package/otp-encrypt-js) 
+[![jSDelivr CDN](https://data.jsdelivr.com/v1/package/npm/otp-encrypt-js/badge?style=rounded)](https://www.jsdelivr.com/package/npm/otp-encrypt-js)
+[![tests](https://github.com/eklem/otp-encrypt-js/actions/workflows/tests.yml/badge.svg)](https://github.com/eklem/otp-encrypt-js/actions/workflows/tests.yml)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Funcions for:
@@ -15,7 +15,7 @@ Library of helper-functions for encrypting and decrypting messages with OTPs - O
 * Check length of message is too long for the encryption key.
 * Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
 
-![Example-code](https://github.com/eklem/otpencryptjs/blob/trunk/otp-library-03.png)
+![Example-code](https://github.com/eklem/otp-encrypt-js/blob/trunk/otp-library-03.png)
 
 Will be core functionality together with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
 
@@ -24,13 +24,13 @@ Will be core functionality together with [nfc-json-transfer](https://github.com/
 ### CJS - CommonJS
 
 ```javaScript
-const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('otpencryptjs')
+const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('otp-encrypt-js')
 ```
 
 ### ESM - Ecmascript Modules
 
 ```javaScript
-import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otpencryptjs'
+import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
 ```
 
 
@@ -38,7 +38,7 @@ import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, chec
 
 index.mjs:
 ```javaScript
-import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otpencryptjs'
+import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
 
 // The message
 const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
