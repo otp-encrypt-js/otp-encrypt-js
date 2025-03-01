@@ -9,8 +9,8 @@ export default [
   {
     input: './src/index-node.js',
     output: [
-      { file: './dist/otp-ed-lib.nodejs.cjs.js', format: 'cjs', exports: 'named' },
-      { file: './dist/otp-ed-lib.nodejs.esm.mjs', format: 'es' }
+      { file: './dist/otpencryptjs.nodejs.cjs.js', format: 'cjs', exports: 'named' },
+      { file: './dist/otpencryptjs.nodejs.esm.mjs', format: 'es' }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
@@ -22,8 +22,8 @@ export default [
   {
     input: './src/index-node.js',
     output: [
-      { file: './dist/otp-ed-lib.nodejs.cjs.min.js', format: 'cjs', exports: 'named' },
-      { file: './dist/otp-ed-lib.nodejs.esm.min.mjs', format: 'es' }
+      { file: './dist/otpencryptjs.nodejs.cjs.min.js', format: 'cjs', exports: 'named' },
+      { file: './dist/otpencryptjs.nodejs.esm.min.mjs', format: 'es' }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
@@ -37,8 +37,8 @@ export default [
   {
     input: './src/index-browser.js',
     output: [
-      { name: 'otp', file: './dist/otp-ed-lib.browser.umd.js', format: 'umd', exports: 'named', globals: { crypto: 'globalVariable' } },
-      { file: './dist/otp-ed-lib.browser.esm.mjs', format: 'es', globals: { crypto: 'globalVariable' } }
+      { name: 'otp', file: './dist/otpencryptjs.browser.umd.js', format: 'umd', exports: 'named', globals: { crypto: 'globalVariable' } },
+      { file: './dist/otpencryptjs.browser.esm.mjs', format: 'es', globals: { crypto: 'globalVariable' } }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
@@ -50,8 +50,8 @@ export default [
   {
     input: './src/index-browser.js',
     output: [
-      { name: 'otp', file: './dist/otp-ed-lib.browser.umd.min.js', format: 'umd', exports: 'named', globals: { crypto: 'globalVariable' } },
-      { file: './dist/otp-ed-lib.browser.esm.min.mjs', format: 'es', globals: { crypto: 'globalVariable' } }
+      { name: 'otp', file: './dist/otpencryptjs.browser.umd.min.js', format: 'umd', exports: 'named', globals: { crypto: 'globalVariable' } },
+      { file: './dist/otpencryptjs.browser.esm.min.mjs', format: 'es', globals: { crypto: 'globalVariable' } }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`

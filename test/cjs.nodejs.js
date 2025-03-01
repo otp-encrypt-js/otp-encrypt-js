@@ -1,5 +1,5 @@
 const test = require('ava')
-const { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../dist/otp-ed-lib.nodejs.cjs.js')
+const { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../dist/otpencryptjs.nodejs.cjs.js')
 const message = 'Hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
 
 test('Text to plaincode + tooLong: false', t => {

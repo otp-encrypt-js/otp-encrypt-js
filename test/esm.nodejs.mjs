@@ -1,5 +1,5 @@
 import test from 'ava'
-import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../dist/otp-ed-lib.nodejs.cjs.js'
+import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../dist/otpencryptjs.nodejs.cjs.js'
 const message = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
 
 test('Text to plaincode + tooLong: false', t => {

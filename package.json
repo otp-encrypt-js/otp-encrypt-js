@@ -1,17 +1,17 @@
 {
-  "name": "onetimepadjs",
-  "version": "0.3.1",
+  "name": "otp-encrypt-js",
+  "version": "0.5.0",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
-  "main": "./dist/otp-ed-lib.nodejs.cjs.js",
-  "module": "./dist/otp-ed-lib.nodejs.esm.mjs",
-  "browser": "./dist/otp-ed-lib.browser.umd.js",
+  "main": "./dist/otpencryptjs.nodejs.cjs.js",
+  "module": "./dist/otpencryptjs.nodejs.esm.mjs",
+  "browser": "./dist/otpencryptjs.browser.umd.js",
   "scripts": {
     "build": "rollup --config",
     "test": "npm run build && standard './scripts/*.js' && cd ./test && npx ava cjs.nodejs.js && npx ava esm.nodejs.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eklem/otp-encryption-decryption-lib.git"
+    "url": "git+https://github.com/eklem/OneTimePadJS.git"
   },
   "devDependencies": {
     "batr": "^2.1.10",
