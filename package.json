@@ -2,8 +2,9 @@
   "name": "otp-encrypt-js",
   "version": "0.5.1",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
+  "type": "module",
   "main": "./dist/otp-encrypt-js.nodejs.cjs.js",
-  "module": "./dist/otp-encrypt-js.nodejs.esm.mjs",
+  "module": "./dist/otp-encrypt-js.nodejs.esm.js",
   "browser": "./dist/otp-encrypt-js.browser.umd.js",
   "scripts": {
     "build": "rollup --config",
@@ -14,10 +15,18 @@
     "url": "git+https://github.com/eklem/otp-encrypt-js.git"
   },
   "devDependencies": {
-    "batr": "^2.1.10",
+    "ava": "^6.2.0",
     "node-fetch": "^3.3.2",
+    "rgi-emoji-regex-pattern": "^1.3.1",
+    "unicode-emojis-unique-id-json": "^0.0.5",
     "words-n-numbers": "^9.1.2",
-    "rgi-emoji-regex-pattern": "^1.3.1"
+    "rollup": "^4.34.9",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "rollup-plugin-string": "^3.0.0",
+    "standard": "^17.1.2"
   },
   "keywords": [
     "otp",

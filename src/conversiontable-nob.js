@@ -59,4 +59,4 @@ const nob = {
   ]
 }
 
-exports.nob = nob
+export { nob }

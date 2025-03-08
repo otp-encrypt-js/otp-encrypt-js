@@ -1,9 +1,7 @@
-const { createOnetimePad } = require('./otp-node.js')
-const { codebookRaw } = require('./codebook-emojis.js')
-const { emojiRegex } = require('./regex-emojis.js')
-const { eng } = require('./conversiontable-eng.js')
-const { nob } = require('./conversiontable-nob.js')
-const codebook = codebookRaw
+import { codebook } from 'unicode-emojis-unique-id-json'
+import { emojiRegex } from './regex-emojis.js'
+import { eng } from './conversiontable-eng.js'
+import { nob } from './conversiontable-nob.js'
 
 // ### Function: Text to plaincode
 function textToPlaincode (text, conversionLanguage, codebook) {
@@ -95,12 +93,15 @@ function encryptDecryptDigit (digit, otpKey, direction) {
   return encryptedDecrypted
 }
 
-exports.textToPlaincode = textToPlaincode
-exports.plaincodeToText = plaincodeToText
-exports.checkLength = checkLength
-exports.encryptPlaincode = encryptPlaincode
-exports.decryptEncryptedMsg = decryptEncryptedMsg
-exports.eng = eng
-exports.nob = nob
-exports.codebook = codebook
-exports.createOnetimePad = createOnetimePad
+// ### Function: Create one-time pad based on crypto.getRandomValues
+const createOneTimePad = function (length) {
+  let otp = ''
+  const randomValuesArr = window.getRandomValues(new Uint8Array(length));
+  // converting from 0-255 to single digits (0-9)
+  for (let i = 0; i < randomValuesArr.length; i++) {
+    otp += Math.floor(randomValuesArr[i] / 256 * 10)
+  }
+  return otp
+}
+
+export { textToPlaincode, plaincodeToText, checkLength, encryptPlaincode, decryptEncryptedMsg, eng, nob, codebook, createOneTimePad }

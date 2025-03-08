@@ -56,4 +56,4 @@ const eng = {
   ]
 }
 
-exports.eng = eng
+export { eng }
