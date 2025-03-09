@@ -253,18 +253,18 @@ Codebook for emojis. Not language specific. Starts with a `0` in plaincode and t
 Example of three first entries:
 
 ```javaScript
-codebook: [
+const codebook = [
   {
-    unicode: '😀',
-    plaincode: 00000
+    "id": "00001",
+    "emoji": "😃"
   },
   {
-    unicode: '😃',
-    plaincode: 00001
+    "id": "000002",
+    "emoji": "😀"
   },
   {
-    unicode: '😄',
-    plaincode: 00002
+    "id": "000003",
+    "emoji": "😄"
   }
 ]
 ```

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>otp-encrypt-js demo</h1>
+    </header>
+    <div id="content">
+      <div id="first">
+        <h2>OTP (one-time pad)</h2>
+        <textarea placeholder="paste or generate one-time pad"></textarea><br />
+        <input type="number" id="otplength" value="1024" /><button>Generate one-time pad</button>
+      </div>
+      <div id="second">
+        <h2>Message</h2>
+        <textarea placeholder="message"></textarea>
+        <div>characters left and too long: true/false</div>
+      </div>
+      <div id="third">
+        <h2>Plaincode and encrypted message</h2>
+        <textarea placeholder="plaincode"></textarea>
+        <textarea placeholder="encrypted message"></textarea>
+      </div>
+      <div id="fourth">
+        <h2>Decrypted plaincode and message</h2>
+        <textarea placeholder="decrypted plaincode"></textarea>
+        <textarea placeholder="decrypted message"></textarea>
+      </div>
+    </div>
+
+    <script type="module">
+      import { reactive, html } from 'https://esm.sh/@arrow-js/core';
+      // Start your app here!
+    </script>
+    <script type="module" src="./otp-encrypt-app.js"></script>
+    <script type="module" src="./otp-encrypt-app.js"></script>
+  </body>
+</html>
