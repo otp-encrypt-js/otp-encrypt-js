@@ -269,16 +269,23 @@ const codebook = [
 ]
 ```
 
-## Maintenance
+## Dev setup
 
-If unicode emojis are updated (to i.e. v.16 from v.15)
+### Live Preview
+
+Install VSCode plugin: **Live Preview by Microsoft** and use **VSCode port forwarding**.
+
+`shift` + `command` + `p``
 
 ```console
-cd scipts
-node ./fetch-emojis.mjs && node ./create-emoji-regex.mjs && node ./create-emoji-codebook.mjs
+Live Preview: Start Server
 ```
 
-## Possible issue
+Set port forwarding in VScode on port 3000
+
+
+
+## Issues
 
 * It's an untested toy. Don't bet your life on it. But it can be used to teach kids and minors about the importance of encryption. [Discussion about the library and one-time-pad encryption on Reddit](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
 * Exchanging one-time-pads is a problem. May be tackled with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer).

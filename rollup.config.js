@@ -1,7 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import terser from '@rollup/plugin-terser'
 import json from '@rollup/plugin-json'
+import commonjs from '@rollup/plugin-commonjs'
 
 export default [
   // ### Browsers ###
@@ -9,13 +8,15 @@ export default [
   {
     input: './src/index.js',
     output: [
-      { file: './dist/otp-encrypt-js.browser.esm.js', format: 'es', globals: { crypto: 'globalVariable' }}
+      // { file: './dist/otp-encrypt-js.browser.esm.js', format: 'es' }
+      { file: './dist/otp-encrypt-js.browser.esm.js', format: 'es', globals: { crypto: 'globalVariable' } }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
+      commonjs(),
       json() // for Rollup to be able to read content from codebook-emojis.json
     ]
-  },
+  }
   // UMD and ES module, minified versions
   // {
   //   input: './src/index.js',

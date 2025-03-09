@@ -7,7 +7,7 @@
   "module": "./dist/otp-encrypt-js.nodejs.esm.js",
   "browser": "./dist/otp-encrypt-js.browser.umd.js",
   "scripts": {
-    "build": "rollup --config && cp ./dist/otp-encrypt-js.browser.esm.js ./demo/",
+    "build": "rollup --config && cp ./dist/*.js* ./demo/",
     "test": "npm run build && standard './scripts/*.js' && cd ./test && npx ava cjs.nodejs.js && npx ava esm.nodejs.mjs"
   },
   "repository": {
@@ -26,7 +26,8 @@
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "rollup-plugin-string": "^3.0.0",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "stopword": "^3.1.4"
   },
   "keywords": [
     "otp",

@@ -96,7 +96,7 @@ function encryptDecryptDigit (digit, otpKey, direction) {
 // ### Function: Create one-time pad based on crypto.getRandomValues
 const createOneTimePad = function (length) {
   let otp = ''
-  const randomValuesArr = window.getRandomValues(new Uint8Array(length));
+  const randomValuesArr = crypto.getRandomValues(new Uint8Array(length));
   // converting from 0-255 to single digits (0-9)
   for (let i = 0; i < randomValuesArr.length; i++) {
     otp += Math.floor(randomValuesArr[i] / 256 * 10)
@@ -104,4 +104,4 @@ const createOneTimePad = function (length) {
   return otp
 }
 
-export { textToPlaincode, plaincodeToText, checkLength, encryptPlaincode, decryptEncryptedMsg, eng, nob, codebook, createOneTimePad }
+export { createOneTimePad, codebook, textToPlaincode, plaincodeToText, checkLength, encryptPlaincode, decryptEncryptedMsg, eng, nob }
