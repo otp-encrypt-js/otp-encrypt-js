@@ -275,13 +275,14 @@ const codebook = [
 
 Install VSCode plugin: **Live Preview by Microsoft** and use **VSCode port forwarding**.
 
-`shift` + `command` + `p``
+`shift` + `command` + `p`
 
 ```console
 Live Preview: Start Server
+Live Preview: Start Server Logging
 ```
 
-Set port forwarding in VScode on port 3000
+Under `ports` tab in server logging window, set port forwarding on port 3000
 
 
 

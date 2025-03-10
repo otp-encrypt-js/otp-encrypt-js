@@ -1,6 +1,6 @@
 const codebook = [
   {
-    "id": "00001",
+    "id": "000001",
     "emoji": "😃"
   },
   {
@@ -14673,7 +14673,7 @@ function checkLength (plaincode, otp) {
   if (plaincodeLength > otpLength) {
     tooLong = true;
   }
-  return { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
+  return { plaincodeLength, otpLength, tooLong }
 }
 
 // ### Function: Encrypt

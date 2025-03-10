@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   background:#dddddd;
+  color:#444444;
   font-family: "IBM Plex Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -34,35 +35,48 @@ body {
 }
 
 header {
+  top: 0px;
+  position: sticky;
   background:#cccccc;
   padding:1rem;
+  filter: drop-shadow(#3d3d3d 0px -2px 8px);
 }
 
-#content {
+#app {
   padding:1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 260px);
+  column-gap: 15px;
 }
 
 h1 {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 600;
-  font-style: italic;
-  font-size:2rem;
+  font-size:1.3rem;
+}
+
+img#logo {
+  width:24px;
+  height:24px;
+  margin:5px 8px 0 0;
+  vertical-align:text-bottom;
 }
 
 h2 {
-  font-size:1.5rem;
-}
-#first, #second, #third {
-  margin-bottom: 40px;
+  margin-top:30px;
+  font-size:1.1rem;
 }
 
 textarea {
   height: 90px;
-  width: 500px;
+  width: 100%;
+  margin:3px 3px 0 0;
   font-family: "IBM Plex Mono", monospace;
+  resize: vertical;
 }
 
 #otplength {
   width:66px;
   font-family: "IBM Plex Mono", monospace;
+  margin-right:3px;
 }

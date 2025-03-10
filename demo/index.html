@@ -1,6 +1,7 @@
 <!DOCTYPE html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./img/icon128.png" />
     <link href="./style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,29 +10,10 @@
   </head>
   <body>
     <header>
-      <h1>otp-encrypt-js demo</h1>
+      <h1><img id="logo" src="./img/icon48.png" />otp-encrypt-js demo</h1>
     </header>
-    <div id="content">
-      <div id="first">
-        <h2>OTP (one-time pad)</h2>
-        <textarea placeholder="paste or generate one-time pad"></textarea><br />
-        <input type="number" id="otplength" value="1024" /><button>Generate one-time pad</button>
-      </div>
-      <div id="second">
-        <h2>Message</h2>
-        <textarea placeholder="message"></textarea>
-        <div>characters left and too long: true/false</div>
-      </div>
-      <div id="third">
-        <h2>Plaincode and encrypted message</h2>
-        <textarea placeholder="plaincode"></textarea>
-        <textarea placeholder="encrypted message"></textarea>
-      </div>
-      <div id="fourth">
-        <h2>Decrypted plaincode and message</h2>
-        <textarea placeholder="decrypted plaincode"></textarea>
-        <textarea placeholder="decrypted message"></textarea>
-      </div>
+    <div id="app">
+      <!-- Here comes the opt-app -->
     </div>
   </body>
 </html>
