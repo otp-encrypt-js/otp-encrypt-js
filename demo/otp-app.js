@@ -16,8 +16,8 @@ const data = reactive({
   checkLength: { optLeft: 0, tooLong: false },
   plaincode: '',
   encrypted: '',
-  decryptedPlaincode: '',
-  decryptedMessage: ''
+  plaincodeDecrypted: '',
+  messageDecrypted: ''
 })
 
 // ## template
@@ -27,12 +27,12 @@ const template = html`
   <div id="otp">
     <h2>1. OTP (one-time pad)</h2>
     <textarea placeholder="paste or generate one-time pad" value="${() => data.otp}"></textarea><br />
-    <input type="number" id="otplength" value="64" @change="${updateOtpLength}" /><button @click="${generateOtp}">Generate one-time pad</button>
+    <input type="number" id="otplength" value="64" @change="${e => { data.otpLength = e.target.value }}" /><button @click="${generateOtp}">Generate one-time pad</button>
   </div>
   <div id="message">
     <h2>2. Message</h2>
-    <textarea id="messageText" placeholder="message" @input="${getMessage}"></textarea>
-    <div>${() => data.checkLength.otpLeft} characters left and too long: ${() => data.checkLength.tooLong}</div>
+    <textarea placeholder="message" @input="${e => { data.message = e.target.value }}"></textarea>
+    <div>${() => data.checkLength.otpLeft} ciphers left of OTP</div>
   </div>
   <div id="plaincodedMessage">
     <h2>3. Plaincoded message</h2>
@@ -40,15 +40,15 @@ const template = html`
   </div>
   <div id="encryptedMessage">
     <h2>4. Encrypted message</h2>
-    <textarea placeholder="encrypted message"></textarea>
+    <textarea placeholder="encrypted message" value="${() => data.encrypted}"></textarea>
   </div>
   <div id="decryptedPlaincode">
     <h2>5. Decrypted plaincode</h2>
-    <textarea placeholder="decrypted plaincode"></textarea>
+    <textarea placeholder="decrypted plaincode" value="${() => data.plaincodeDecrypted}"></textarea>
   </div>
   <div id="decryptedMessage">
   <h2>6. Decrypted message</h2>
-    <textarea placeholder="decrypted message"></textarea>
+    <textarea placeholder="decrypted message" value="${() => data.messageDecrypted}"></textarea>
   </div>
 `
 template(appElement)
@@ -59,28 +59,9 @@ function generateOtp () {
   data.otp = createOneTimePad(data.otpLength)
 }
 
-function updateOtpLength () {
-  data.otpLength = document.getElementById('otplength').valueAsNumber
-  console.log(data.otpLength)
-  checkLengthLocal()
-}
-
-function getMessage () {
-  if (document.getElementById('messageText').value !== null) {
-    data.message = document.getElementById('messageText').value
-    checkLengthLocal()
-  }
-}
-
 function checkLengthLocal () {
   data.checkLength = checkLength(data.plaincode, data.otp)
 }
-
-// ### Watchers
-
-data.$on('message', (value) => {
-
-})
 
 function plaincodeMessage () {
   if (data.message) {
@@ -88,4 +69,25 @@ function plaincodeMessage () {
   }
 }
 
+function encryptPlaincodeLocal () {
+  if (!data.checkLength.tooLong) {
+    data.encrypted = encryptPlaincode(data.plaincode, data.otp).join('')
+  }
+}
+
+function decryptPlaincode () {
+  data.plaincodeDecrypted = decryptEncryptedMsg(data.encrypted, data.otp).join('')
+}
+
+function decryptMessage () {
+  if (data.plaincodeDecrypted !== '') {
+    data.messageDecrypted = plaincodeToText(data.plaincodeDecrypted, eng, codebook)
+  }
+}
+
+// ### Watchers
 watch(plaincodeMessage)
+watch(checkLengthLocal)
+watch(encryptPlaincodeLocal)
+watch(decryptPlaincode)
+watch(decryptMessage)
