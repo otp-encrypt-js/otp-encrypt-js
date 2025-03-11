@@ -44,13 +44,15 @@ function plaincodeToText (plaincode, conversionLanguage, codebook) {
 
 // ### Function: Check one-time pad >= plaincode
 function checkLength (plaincode, otp) {
+  if (plaincode === undefined) {
+    plaincode = { length: 0 }
+  }
   let tooLong = false
-  const plaincodeLength = plaincode.length
-  const otpLength = otp.length
-  if (plaincodeLength > otpLength) {
+  const otpLeft = otp.length - plaincode.length
+  if (plaincode.length > otp.length) {
     tooLong = true
   }
-  return { plaincodeLength, otpLength, tooLong }
+  return { otpLeft, tooLong }
 }
 
 // ### Function: Encrypt

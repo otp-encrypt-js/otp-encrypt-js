@@ -4,7 +4,7 @@ import { createOneTimePad, codebook, checkLength, textToPlaincode, plaincodeToTe
 const otp = createOneTimePad(128)
 const lengthValid = checkLength('some string', otp)
 
-console.log(codebook[0].id + ' ' + codebook[0].emoji)
+console.log(codebook[0].plaincode + ' ' + codebook[0].emoji)
 console.log(otp)
 console.log(lengthValid)
 
@@ -13,6 +13,7 @@ const data = reactive({
   otp: '',
   otpLength: 64,
   message: '',
+  checkLength: { optLeft: 0, tooLong: false },
   plaincode: '',
   encrypted: '',
   decryptedPlaincode: '',
@@ -31,7 +32,7 @@ const template = html`
   <div id="message">
     <h2>2. Message</h2>
     <textarea id="messageText" placeholder="message" @input="${getMessage}"></textarea>
-    <div>characters left and too long: true/false</div>
+    <div>${() => data.checkLength.otpLeft} characters left and too long: ${() => data.checkLength.tooLong}</div>
   </div>
   <div id="plaincodedMessage">
     <h2>3. Plaincoded message</h2>
@@ -61,13 +62,18 @@ function generateOtp () {
 function updateOtpLength () {
   data.otpLength = document.getElementById('otplength').valueAsNumber
   console.log(data.otpLength)
+  checkLengthLocal()
 }
 
 function getMessage () {
   if (document.getElementById('messageText').value !== null) {
     data.message = document.getElementById('messageText').value
-    console.log(data.message)
+    checkLengthLocal()
   }
+}
+
+function checkLengthLocal () {
+  data.checkLength = checkLength(data.plaincode, data.otp)
 }
 
 // ### Watchers
