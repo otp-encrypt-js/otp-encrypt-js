@@ -1,6 +1,6 @@
 {
   "name": "otp-encrypt-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "type": "module",
   "module": "./dist/otp-encrypt-js.nodejs.esm.js",
