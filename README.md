@@ -18,9 +18,8 @@ Library of helper-functions for encrypting and decrypting messages with OTPs - O
 * Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
 
 ## Demo
+![Aminamtion of otp-encrypt-js demo in use](https://github.com/user-attachments/assets/b7ce64aa-c68a-4684-bba3-3ce3d79fbcdb)
 
-![Aminamtion of demo in use]()
-[otp-encrypt-js demo](https://eklem.github.io/otp-encrypt-js/demo/)
 ## Getting the script in your environment
 
 ### ESM - Ecmascript Modules
