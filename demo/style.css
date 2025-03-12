@@ -67,6 +67,13 @@ h2 {
   font-size:1.1rem;
 }
 
+h2 > span {
+  font-size:0.8rem;
+  float:right;
+  text-align:bottom;
+  padding-top:0.3rem;
+}
+
 textarea {
   height: 90px;
   width: 100%;

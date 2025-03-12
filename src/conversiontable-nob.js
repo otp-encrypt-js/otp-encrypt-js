@@ -1,6 +1,6 @@
 const nob = {
   plaincodeRegex: '0\\d{5}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})',
-  textRegex: '[a-zæøå0-9\\s]|[,@#+-/.:!(=?)]',
+  textRegex: '[a-zæøå0-9\\s]|[,@#+-/.:\'!(=?)]',
   table: [
     { unicode: 'e', plaincode: '1' },
     { unicode: 'r', plaincode: '2' },

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "type": "module",
-  "main": "./dist/otp-encrypt-js.nodejs.cjs.js",
   "module": "./dist/otp-encrypt-js.nodejs.esm.js",
-  "browser": "./dist/otp-encrypt-js.browser.umd.js",
   "scripts": {
     "build": "rollup --config && cp ./dist/*.js* ./demo/",
     "test": "npm run build && standard './scripts/*.js' && cd ./test && npx ava esm.nodejs.mjs"

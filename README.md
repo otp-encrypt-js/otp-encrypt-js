@@ -1,5 +1,7 @@
 # otp-encrypt-js
 
+One-time pad encryption and decryption library for the browser.
+
 [![NPM version](http://img.shields.io/npm/v/otp-encrypt-js.svg?style=flat)](https://npmjs.org/package/otp-encrypt-js)
 [![NPM downloads](http://img.shields.io/npm/dm/otp-encrypt-js.svg?style=flat)](https://npmjs.org/package/otp-encrypt-js) 
 [![jSDelivr CDN](https://data.jsdelivr.com/v1/package/npm/otp-encrypt-js/badge?style=rounded)](https://www.jsdelivr.com/package/npm/otp-encrypt-js)
@@ -21,22 +23,25 @@ Will be core functionality together with [nfc-json-transfer](https://github.com/
 
 ## Getting the script in your environment
 
-### CJS - CommonJS
+### ESM - Ecmascript Modules
 
-```javaScript
-const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('otp-encrypt-js')
+Will only work in the browser. Using it directly in an HTML file
+
+```html
+<script type="module">
+  import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
+  // Your app here
+</script>
 ```
 
-### ESM - Ecmascript Modules
+Or you can import it from another JavaScript module:
 
 ```javaScript
 import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
 ```
 
-
 ## Usage
 
-index.mjs:
 ```javaScript
 import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
 
@@ -68,14 +73,6 @@ console.log('Decrypted plaincode: ' + decryptedPlaincode.join(''))
 const textConverted = plaincodeToText(decryptedPlaincode.join(''), nob, codebook)
 console.log('Decrypted msg:       ' + textConverted + '\n\n')
 ```
-
-When doing ESM-version of the library, run it with:
-
-```sh
-node --experimental-json-modules index.mjs
-```
-
-
 
 ## API
 

@@ -1,10 +1,10 @@
 import { watch, reactive, html } from 'https://esm.sh/@arrow-js/core'
-import { createOneTimePad, codebook, checkLength, textToPlaincode, plaincodeToText, encryptPlaincode, decryptEncryptedMsg, eng } from './otp-encrypt-js.browser.esm.js'
+import { createOneTimePad, codebook, checkLength, textToPlaincode, plaincodeToText, encryptPlaincode, decryptEncryptedMsg, eng, nob } from './otp-encrypt-js.browser.esm.js'
 
 const otp = createOneTimePad(128)
 const lengthValid = checkLength('some string', otp)
 
-console.log(codebook[0].plaincode + ' ' + codebook[0].emoji)
+console.log(codebook[0].plaincode + ' ' + codebook[0].unicode)
 console.log(otp)
 console.log(lengthValid)
 
@@ -13,6 +13,7 @@ const data = reactive({
   otp: '',
   otpLength: 64,
   message: '',
+  language: 'eng',
   checkLength: { optLeft: 0, tooLong: false },
   plaincode: '',
   encrypted: '',
@@ -30,9 +31,14 @@ const template = html`
     <input type="number" id="otplength" value="64" @change="${e => { data.otpLength = e.target.value }}" /><button @click="${generateOtp}">Generate one-time pad</button>
   </div>
   <div id="message">
-    <h2>2. Message</h2>
+    <h2>2. Message  <span>${() => data.checkLength.otpLeft} ciphers left of OTP</span></h2>
     <textarea placeholder="message" @input="${e => { data.message = e.target.value }}"></textarea>
-    <div>${() => data.checkLength.otpLeft} ciphers left of OTP</div>
+    <div>
+      <select name="language" id="language-select" @change="${e => { data.language = e.target.value }}">
+        <option value="eng">English</option>
+        <option value="nob">Norwegian</option>
+    </select>
+    </div>
   </div>
   <div id="plaincodedMessage">
     <h2>3. Plaincoded message</h2>
@@ -65,8 +71,12 @@ function checkLengthLocal () {
 
 function plaincodeMessage () {
   if (data.message) {
-    data.plaincode = textToPlaincode(data.message, eng, codebook)
-  }
+    if (data.language === 'eng') {
+      data.plaincode = textToPlaincode(data.message, eng, codebook)
+    } else if (data.language === 'nob') {
+      data.plaincode = textToPlaincode(data.message, nob, codebook)
+    }
+  } 
 }
 
 function encryptPlaincodeLocal () {
@@ -81,7 +91,11 @@ function decryptPlaincode () {
 
 function decryptMessage () {
   if (data.plaincodeDecrypted !== '') {
-    data.messageDecrypted = plaincodeToText(data.plaincodeDecrypted, eng, codebook)
+    if (data.language === 'eng') {
+      data.messageDecrypted = plaincodeToText(data.plaincodeDecrypted, eng, codebook)
+    } else if (data.language === 'nob') {
+      data.messageDecrypted = plaincodeToText(data.plaincodeDecrypted, nob, codebook)
+    }
   }
 }
 
