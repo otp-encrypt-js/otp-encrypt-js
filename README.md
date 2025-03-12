@@ -124,7 +124,7 @@ encryptPlaincode(plaincode, otp)
 
 ### `decryptEncryptedMsg()`
 
-Decrypts the encrypted message with the same one-time-pad that it was encrypted with.
+Decrypts the encrypted message with the same one-time-pad that it was encrypted with. Decrypts back to plaincode.
 
 ```javaScript
 decryptEncryptedMsg(encryptedMsg, otp)
