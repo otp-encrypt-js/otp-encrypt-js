@@ -17,10 +17,10 @@ Library of helper-functions for encrypting and decrypting messages with OTPs - O
 * Check length of message is too long for the encryption key.
 * Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
 
-![Example-code](https://github.com/eklem/otp-encrypt-js/blob/trunk/otp-library-03.png)
+## Demo
 
-Will be core functionality together with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
-
+![Aminamtion of demo in use]()
+[otp-encrypt-js demo](https://eklem.github.io/otp-encrypt-js/demo/)
 ## Getting the script in your environment
 
 ### ESM - Ecmascript Modules
