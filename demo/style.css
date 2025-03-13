@@ -75,11 +75,19 @@ h2 > span {
 }
 
 textarea {
+  border: 1px solid #888;
+  border-radius:4px;
+  background-color:eeeeee;
   height: 90px;
   width: 100%;
-  margin:3px 3px 0 0;
+  margin:3px 3px 3px 0;
   font-family: "IBM Plex Mono", monospace;
   resize: vertical;
+}
+
+textarea.highlight {
+  border:2px solid #888;
+  background-color: #ffffcc;
 }
 
 #otplength {

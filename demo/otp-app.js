@@ -46,7 +46,7 @@ const template = html`
   </div>
   <div id="encryptedMessage">
     <h2>4. Encrypted message</h2>
-    <textarea placeholder="encrypted message" value="${() => data.encrypted}"></textarea>
+    <textarea placeholder="encrypted message" class="highlight" value="${() => data.encrypted}"></textarea>
   </div>
   <div id="decryptedPlaincode">
     <h2>5. Decrypted plaincode</h2>
@@ -54,7 +54,7 @@ const template = html`
   </div>
   <div id="decryptedMessage">
   <h2>6. Decrypted message</h2>
-    <textarea placeholder="decrypted message" value="${() => data.messageDecrypted}"></textarea>
+    <textarea placeholder="decrypted message" class="highlight" value="${() => data.messageDecrypted}"></textarea>
   </div>
 `
 template(appElement)

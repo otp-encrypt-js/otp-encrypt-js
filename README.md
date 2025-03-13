@@ -9,13 +9,6 @@ One-time pad encryption and decryption library for the browser.
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Funcions for:
-* Generating one-time-pads - encryption/decryption keys.
-* Converting plaintext to plaincode.
-* Converting plaincode to plaintext.
-* Encrypting plaincode text
-* Decrypting encrypoted text
-* Check length of message is too long for the encryption key.
-* Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
 
 ![Example-code](https://github.com/eklem/otp-encrypt-js/blob/trunk/otp-library-03.png)
 
@@ -42,8 +35,10 @@ import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, chec
 
 ## Usage
 
+### Encryption
+
 ```javaScript
-import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encrypt-js'
+import { plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode } from 'otp-encrypt-js'
 
 // The message
 const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
@@ -64,7 +59,13 @@ console.log('Length:              ' + JSON.stringify(lengthObj))
 // ### Encrypting plaincode
 const encryptedMsg = encryptPlaincode(plaincodeConverted, otp)
 console.log('Encrypted plaincode: ' + encryptedMsg.join(''))
+```
 
+```javascript
+
+import { textToPlaincode, decryptEncryptedMsg, nob, codebook } from 'otp-encrypt-js'
+
+// ### otp - onetime pad the same as for encrypting the message
 // ### Decrypting encrypted message
 const decryptedPlaincode = decryptEncryptedMsg(encryptedMsg.join(''), otp)
 console.log('Decrypted plaincode: ' + decryptedPlaincode.join(''))
@@ -76,25 +77,9 @@ console.log('Decrypted msg:       ' + textConverted + '\n\n')
 
 ## API
 
-### `textToPlaincode()`
+### Encrypting a mesaage
 
-Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time-pad encryption.
-
-```javaScript
-textToPlaincode(text, conversionLanguage, codebook)
-// Returns plaincode string from a string of text.
-```
-
-### `plaincodeToText()`
-
-Converts plaincode back to plaintext.
-
-```javaScript
-plaincodeToText(plaincode, conversionLanguage, codebook)
-// Returns text string from plaincode string.
-```
-
-### `createOnetimePad()`
+#### `createOnetimePad()`
 
 The length of the should be equal to or larger than your plaincode. And it should only be used once. This ensures that it is impossible to break the code and read the encrypted message.
 
@@ -103,7 +88,16 @@ createOnetimePad(length)
 // Returns a one-time pad of desired length, as a string of digits.
 ```
 
-### `checkLength()`
+#### `textToPlaincode()`
+
+Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time pad encryption.
+
+```javaScript
+textToPlaincode(text, conversionLanguage, codebook)
+// Returns plaincode string from a string of text.
+```
+
+#### `checkLength()`
 
 Helper function to check if plaincode length (and thus your message length) is too long, and also show the user how close they are to exceed length of one-time pad.
 
@@ -112,27 +106,40 @@ checkLength(plaincode, otp)
 // Returns { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
 ```
 
-### `encryptPlaincode()`
+#### `encryptPlaincode()`
 
-Encrypt the plaincode using a one-time-pad.
+Encrypt the plaincode using a one-time pad.
 
 ```javaScript
 encryptPlaincode(plaincode, otp)
 // Returns encrypted message as an string of digits. This is the encrypted message.
 ```
 
-### `decryptEncryptedMsg()`
+### Decrypting a message
 
-Decrypts the encrypted message with the same one-time-pad that it was encrypted with.
+#### `decryptEncryptedMsg()`
+
+Decrypts the encrypted message with the same one-time pad that it was encrypted with. You'll need the one-time pad (otp) you used to encrypt the message.
 
 ```javaScript
 decryptEncryptedMsg(encryptedMsg, otp)
 // Returns message as a string of digits - The message in plainccode.
 ```
 
-### Language conversion tables, regular expressions and codebook
+#### `plaincodeToText()`
 
-Each language contains variables for conversion tables and regular expressions. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time-pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
+Converts plaincode back to plaintext.
+
+```javaScript
+plaincodeToText(plaincode, conversionLanguage, codebook)
+// Returns text string from plaincode string.
+```
+
+### Both needed for encrypting and decrypting messages
+
+Language conversion tables, regular expressions and codebook.
+
+Each language contains variables for conversion tables and regular expressions. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
 
 The table is used for converting letters, digits and emojis to plaincode and the other way around. There are two regular expressions for each language. One is to split up text strings containing text, numbers and emojis into single letters, digits and emojis. The other one is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
 
@@ -229,7 +236,7 @@ table: [
 Example from `eng`. It differs a little bit for each language.
 
 ```javaScript
-eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]'
+eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:\'!(=?)]'
 ```
 
 #### `[language-code].plaincodeRegex`
@@ -242,17 +249,17 @@ eng.plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{
 
 #### `codebook`
 
-* **00000 - 09999:**
+* **000001 - 099999:**
   Unicode emojis
 
-Codebook for emojis. Not language specific. Starts with a `0` in plaincode and then 4 digits. Traditionallhy it has been used to be able to write shorter messages, having a short code for longer, often used words. Here it is to be able to express all Unicode emojis.
+Codebook for emojis. Not language specific. Starts with a `0` in plaincode and then 5 digits. Traditionally it has been used to be able to write shorter messages, having short codes for longer, often used words. Here it is to be able to express all Unicode emojis.
 
 Example of three first entries:
 
 ```javaScript
 const codebook = [
   {
-    "id": "00001",
+    "id": "000001",
     "emoji": "😃"
   },
   {
@@ -285,6 +292,5 @@ Under `ports` tab in server logging window, set port forwarding on port 3000
 
 ## Issues
 
-* It's an untested toy. Don't bet your life on it. But it can be used to teach kids and minors about the importance of encryption. [Discussion about the library and one-time-pad encryption on Reddit](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
-* Exchanging one-time-pads is a problem. May be tackled with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer).
-* I haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library.
+* It's an untested librar. Don't bet your life on it. But it can be used to teach kids and minors about the importance of encryption. [Discussion about the library and one-time pad encryption on Reddit](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
+* Exchanging one-time pads is a problem. May be tackled with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer).
