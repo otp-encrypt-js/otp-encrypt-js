@@ -8,19 +8,12 @@ One-time pad encryption and decryption library for the browser.
 [![tests](https://github.com/eklem/otp-encrypt-js/actions/workflows/tests.yml/badge.svg)](https://github.com/eklem/otp-encrypt-js/actions/workflows/tests.yml)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Funcions for:
-* Generating one-time-pads - encryption/decryption keys.
-* Converting plaintext to plaincode.
-* Converting plaincode to plaintext.
-* Encrypting plaincode text
-* Decrypting encrypoted text
-* Check length of message is too long for the encryption key.
-* Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
+Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads. 
 
 ## Demo
 ![Aminamtion of otp-encrypt-js demo in use](https://github.com/user-attachments/assets/b7ce64aa-c68a-4684-bba3-3ce3d79fbcdb)
 
-You can check out the demo yourself: [otp-encrypt-js demo](https://eklem.github.io/otp-encrypt-js/demo/)
+It shows all the steps for encrypting and decrypting a message. You can check out the demo yourself: [otp-encrypt-js demo](https://eklem.github.io/otp-encrypt-js/demo/)
 
 ## Getting the script in your environment
 
@@ -69,8 +62,9 @@ const encryptedMsg = encryptPlaincode(plaincodeConverted, otp)
 console.log('Encrypted plaincode: ' + encryptedMsg.join(''))
 ```
 
-```javascript
+### Decryption
 
+```javascript
 import { textToPlaincode, decryptEncryptedMsg, nob, codebook } from 'otp-encrypt-js'
 
 // ### otp - onetime pad the same as for encrypting the message
