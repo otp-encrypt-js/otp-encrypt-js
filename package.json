@@ -13,25 +13,26 @@
   ],
   "scripts": {
     "build": "rollup --config && cp ./dist/*.js* ./demo/",
-    "test": "npm run build && standard './scripts/*.js' && cd ./test && npx ava esm.nodejs.mjs"
+    "test": "npm run build && standard './scripts/*.js' && npx playwright test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eklem/otp-encrypt-js.git"
   },
   "devDependencies": {
-    "ava": "^6.2.0",
-    "node-fetch": "^3.3.2",
-    "rgi-emoji-regex-pattern": "^1.3.1",
-    "unicode-emojis-unique-id-json": "^0.0.9",
-    "words-n-numbers": "^9.1.2",
-    "rollup": "^4.35.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@playwright/test": "^1.51.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^22.13.10",
+    "local-web-server": "^5.4.0",
+    "node-fetch": "^3.3.2",
+    "rgi-emoji-regex-pattern": "^1.3.1",
+    "rollup": "^4.35.0",
     "rollup-plugin-string": "^3.0.0",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "unicode-emojis-unique-id-json": "^0.0.9"
   },
   "keywords": [
     "otp",
@@ -50,5 +51,8 @@
   "homepage": "https://github.com/eklem/otp-encrypt-js#readme",
   "directories": {
     "test": "test"
+  },
+  "dependencies": {
+    "run": "^1.5.0"
   }
 }

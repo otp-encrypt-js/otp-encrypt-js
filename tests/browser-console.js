@@ -1,9 +1,16 @@
-import test from 'ava'
-import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../dist/otp-encrypt-js.nodejs.esm.js'
+import { test, expect } from '@playwright/test'
+import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../dist/otp-encrypt-js.browser.esm.js'
+import LocalWebServer from 'local-web-server'
+
+const portNumber = 3000
+const ws = await LocalWebServer.create({
+  port: portNumber,
+  directory: 'test/'
+})
+
 const message = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
 
-test('Text to plaincode + tooLong: false', t => {
-  t.plan(2)
+test('Text to plaincode + tooLong: false', async ({ page }) => {
   const expected = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
   console.log('Input:               ' + message)
 
@@ -31,6 +38,8 @@ test('Text to plaincode + tooLong: false', t => {
   const textConverted = plaincodeToText(decryptedPlaincode.join(''), eng, codebook)
   console.log('Decrypted message:   ' + textConverted + '\n\n')
 
-  t.deepEqual(lengthObj.tooLong, false)
-  t.deepEqual(textConverted, expected)
+  await expect(lengthObj.tooLong).toBeFalsy()
+  await expect(textConverted).toEqual(expected)
 })
+
+ws.server.close()
