@@ -315,4 +315,4 @@ npx playwright codegen
 ## Issues
 
 * It's an untested librar. Don't bet your life on it. But it can be used to teach kids and minors about the importance of encryption. [Discussion about the library and one-time pad encryption on Reddit](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
-* Exchanging one-time pads is a problem. May be tackled with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer).
+* Exchanging one-time pads is a problem. May be tackled with [webrtc-p2p-json-transfer](https://github.com/eklem/webrtc-p2p-json-transfer/).
