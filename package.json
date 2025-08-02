@@ -1,6 +1,6 @@
 {
   "name": "otp-encrypt-js",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "type": "module",
   "module": "./dist/otp-encrypt-js.nodejs.esm.js",
@@ -8,7 +8,6 @@
   "jsdelivr": "./dist/otp-encrypt-js.nodejs.esm.js",
   "files": [
     "./dist",
-    "./src",
     "./rollup.config.js"
   ],
   "scripts": {
