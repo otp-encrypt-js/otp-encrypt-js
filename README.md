@@ -13,7 +13,7 @@ Library of helper-functions for encrypting and decrypting messages with OTPs - O
 ## Demo
 ![Aminamtion of otp-encrypt-js demo in use](https://github.com/user-attachments/assets/b7ce64aa-c68a-4684-bba3-3ce3d79fbcdb)
 
-It shows all the steps for encrypting and decrypting a message. You can check out the demo yourself: [otp-encrypt-js demo](https://eklem.github.io/otp-encrypt-js/demo/)
+It shows all the steps for encrypting and decrypting a message. You can check out the demo yourself: [otp-encrypt-js demo](https://otp-encrypt-js.github.io/otp-encrypt-js/demo/)
 
 ## Getting the script in your environment
 
