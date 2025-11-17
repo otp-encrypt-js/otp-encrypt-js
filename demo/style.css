@@ -42,6 +42,10 @@ header {
   filter: drop-shadow(#3d3d3d 0px -2px 8px);
 }
 
+#githublogo {
+  float:right;
+}
+
 #app {
   padding:1rem;
   display: grid;
